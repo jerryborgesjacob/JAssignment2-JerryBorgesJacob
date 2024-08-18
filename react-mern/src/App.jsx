@@ -37,7 +37,7 @@ function App() {
             
         <div className="App">
             <h2>Product List</h2>
-            <ul>
+            <ul id="productList">
                 {products.map(product => (
                     <li key={product._id}>
                         <h2>{product.name}</h2>

@@ -39,3 +39,7 @@ input {
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+#productList li{
+  margin-left: 20px;
+}
