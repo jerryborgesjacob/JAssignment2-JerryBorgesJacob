@@ -3,10 +3,12 @@ import Nav from "./Nav";
 export default function Header() {
   return (
     <header id="header">
-      <h2 id="site-name">
-        <a href="/">E-Commerce</a>
-      </h2>
+      
       <Nav />
+
+      <h1 id="site-name">
+        <a href="/">Biker's World</a>
+      </h1>
     </header>
   );
 }

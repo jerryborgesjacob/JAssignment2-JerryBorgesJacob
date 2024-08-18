@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -39,6 +39,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  border-color: rgb(215, 215, 215);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -54,6 +55,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+h2{
+  font-size: 30px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

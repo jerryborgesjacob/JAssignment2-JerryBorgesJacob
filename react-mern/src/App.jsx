@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import AddProduct from './AddProduct';
-import Nav from './components/Nav';
 import OrderList from './OrderList';
 import AddOrder from './AddOrder';
 import Header from './components/Header';
+import './App.css';
 
 function App() {
     const [products, setProducts] = useState([]);
+    const [Orders, setOrders] = useState([]);
 
     useEffect(() => {
         
@@ -17,14 +18,25 @@ function App() {
             
             
     }, [])
+
+    useEffect(() => {
+        
+        fetch('http://localhost:5000/api/orders')
+            .then(response => response.json())
+            .then(data => setOrders(data));
+            console.log(Orders);
+            
+            
+    }, [])
     ;
 
     return (
+        <>
+        <Header />
         <div>
-            <Header />
+            
         <div className="App">
-            <Nav />
-            <h1>Product List</h1>
+            <h2>Product List</h2>
             <ul>
                 {products.map(product => (
                     <li key={product._id}>
@@ -35,24 +47,22 @@ function App() {
                 ))}
             </ul>
             <div className="App">
-        <h1>Add a New Product</h1>
+        <h2>Add a New Product</h2>
         <AddProduct />
     </div>
     </div>
     <div className="App">
-            <h1>Add a New Order</h1>
+            <h2>Add a New Order</h2>
             <AddOrder />
 
-            <h1>Orders</h1>
+            <h2>Orders</h2>
             <OrderList />
         </div>
-        
-        
-        
-        </div>    
+    </div>    
+    </>
     );
 
-
+    
 }
 
 export default App;

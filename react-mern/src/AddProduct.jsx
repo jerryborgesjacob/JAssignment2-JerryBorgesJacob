@@ -4,16 +4,13 @@ function AddProduct() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [image, setImage] = useState('');
     const [category, setCategory] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const product = { name, description, price, image, category };
-
-        try {
-            const response = await fetch('/api/products', {
+        const product = { name, description, price, category };
+        const response = await fetch('/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,16 +23,11 @@ function AddProduct() {
                 setName('');
                 setDescription('');
                 setPrice('');
-                setImage('');
                 setCategory('');
             } else {
                 alert('Failed to add product');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error adding product');
-        }
-    };
+        } ;
 
     return (
         <form onSubmit={handleSubmit}>
@@ -65,14 +57,7 @@ function AddProduct() {
                     required
                 />
             </div>
-            <div>
-                <label>Image URL:</label>
-                <input
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                />
-            </div>
+            
             <div>
                 <label>Category:</label>
                 <input
@@ -85,5 +70,4 @@ function AddProduct() {
         </form>
     );
 }
-
 export default AddProduct;

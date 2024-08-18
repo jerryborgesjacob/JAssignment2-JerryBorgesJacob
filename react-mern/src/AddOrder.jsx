@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
 function AddOrder() {
+
     const [products, setProducts] = useState('');
     const [user, setUser] = useState({
         name: '',
         email: '',
         address: '',
     });
+    
     const [totalPrice, setTotalPrice] = useState('');
     const [status, setStatus] = useState('');
 
@@ -14,7 +16,7 @@ function AddOrder() {
         e.preventDefault();
 
         const order = {
-            products: products.split(',').map(product => ({ productId: product.trim(), quantity: 1 })), // Assuming 1 quantity for simplicity
+            products,
             user,
             totalPrice,
             status
@@ -51,7 +53,7 @@ function AddOrder() {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label>Product IDs (comma-separated):</label>
+                <label>Product ID:</label>
                 <input
                     type="text"
                     value={products}
