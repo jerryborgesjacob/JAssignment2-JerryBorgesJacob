@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import AddProduct from './AddProduct';
+import Nav from './components/Nav';
+import OrderList from './OrderList';
+import AddOrder from './AddOrder';
+import Header from './components/Header';
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -11,11 +16,14 @@ function App() {
             console.log(products);
             
             
-    }, []);
+    }, [])
+    ;
 
     return (
+        <div>
+            <Header />
         <div className="App">
-      
+            <Nav />
             <h1>Product List</h1>
             <ul>
                 {products.map(product => (
@@ -26,9 +34,25 @@ function App() {
                     </li>
                 ))}
             </ul>
+            <div className="App">
+        <h1>Add a New Product</h1>
+        <AddProduct />
+    </div>
+    </div>
+    <div className="App">
+            <h1>Add a New Order</h1>
+            <AddOrder />
+
+            <h1>Orders</h1>
+            <OrderList />
         </div>
         
+        
+        
+        </div>    
     );
+
+
 }
 
 export default App;
