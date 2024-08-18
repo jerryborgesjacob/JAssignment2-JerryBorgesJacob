@@ -25,7 +25,6 @@ const productSchema = new mongoose.Schema({
     name: String,
     description: String,
     price: Number,
-    image: String,
     category: String,
   });
   
@@ -56,21 +55,6 @@ app.get('/api/products', async (req, res) => {
     const newProduct = new Product(req.body);
     await newProduct.save();
     res.status(201).json(newProduct);
-  });
-  
-  app.get('/api/products/:id', async (req, res) => {
-    const product = await Product.findById(req.params.id);
-    res.json(product);
-  });
-  
-  app.put('/api/products/:id', async (req, res) => {
-    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(updatedProduct);
-  });
-  
-  app.delete('/api/products/:id', async (req, res) => {
-    await Product.findByIdAndDelete(req.params.id);
-    res.status(204).send();
   });
   
   app.get('/api/orders', async (req, res) => {
